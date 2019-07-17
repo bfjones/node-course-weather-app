@@ -13,10 +13,11 @@ const forecast = (latitude, longitude, callback) => {
         } else {
             const temp = body.currently.temperature;
             const rain = body.currently.precipProbability;
+            const visibility = body.currently.visibility;
             callback(undefined, {
                 temperature: temp,
                 precip: rain,
-                summary: `${body.daily.summary} It is currently ${temp} degrees. There is ${rain}% chance of rain.`
+                summary: `${body.daily.summary} It is currently ${temp} degrees. There is ${rain}% chance of rain with a visibility of ${visibility} miles.`
             })
         }
     })
